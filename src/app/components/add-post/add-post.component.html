@@ -1,112 +1,110 @@
-<div class="container">
+<div class="container d-flex justify-content-center">
   <mat-card>
     <mat-card-title>
       <h1 class="text-center m-5">Add Working hours</h1>
     </mat-card-title>
-    <div class="row">
-      <div class="col-3">
-        <mat-slide-toggle [(ngModel)]="monday">monday</mat-slide-toggle>
-      </div>
-      <div class="col-9">
-        <div class="custom-slider">
-          <ng5-slider
-            [(value)]="value[0]"
-            [(highValue)]="highValue[0]"
-            [options]="options"
-          ></ng5-slider>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-3">
+          <mat-slide-toggle [(ngModel)]="day[0]">monday</mat-slide-toggle>
+        </div>
+        <div class="col-9">
+          <div class="custom-slider">
+            <ng5-slider
+              [(value)]="value[0]"
+              [(highValue)]="highValue[0]"
+              [options]="options"
+            ></ng5-slider>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <mat-slide-toggle [(ngModel)]="tuesday">tuesday</mat-slide-toggle>
-      </div>
-      <div class="col-9">
-        <div class="custom-slider">
-          <ng5-slider
-            [(value)]="value[1]"
-            [(highValue)]="highValue[1]"
-            [options]="options"
-          ></ng5-slider>
+      <div class="row">
+        <div class="col-3">
+          <mat-slide-toggle [(ngModel)]="day[1]">tuesday</mat-slide-toggle>
+        </div>
+        <div class="col-9">
+          <div class="custom-slider">
+            <ng5-slider
+              [(value)]="value[1]"
+              [(highValue)]="highValue[1]"
+              [options]="options"
+            ></ng5-slider>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <mat-slide-toggle [(ngModel)]="wednesday">wednesday</mat-slide-toggle>
-      </div>
-      <div class="col-9">
-        <div class="custom-slider">
-          <ng5-slider
-            [(value)]="value[2]"
-            [(highValue)]="highValue[2]"
-            [options]="options"
-          ></ng5-slider>
+      <div class="row">
+        <div class="col-3">
+          <mat-slide-toggle [(ngModel)]="day[2]">wednesday</mat-slide-toggle>
+        </div>
+        <div class="col-9">
+          <div class="custom-slider">
+            <ng5-slider
+              [(value)]="value[2]"
+              [(highValue)]="highValue[2]"
+              [options]="options"
+            ></ng5-slider>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <mat-slide-toggle [(ngModel)]="thursday">thursday</mat-slide-toggle>
-      </div>
-      <div class="col-9">
-        <div class="custom-slider">
-          <ng5-slider
-            [(value)]="value[3]"
-            [(highValue)]="highValue[3]"
-            [options]="options"
-          ></ng5-slider>
+      <div class="row">
+        <div class="col-3">
+          <mat-slide-toggle [(ngModel)]="day[3]">thursday</mat-slide-toggle>
+        </div>
+        <div class="col-9">
+          <div class="custom-slider">
+            <ng5-slider
+              [(value)]="value[3]"
+              [(highValue)]="highValue[3]"
+              [options]="options"
+            ></ng5-slider>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <mat-slide-toggle [(ngModel)]="friday">friday</mat-slide-toggle>
-      </div>
-      <div class="col-9">
-        <div class="custom-slider">
-          <ng5-slider
-            [(value)]="value[4]"
-            [(highValue)]="highValue[4]"
-            [options]="options"
-          ></ng5-slider>
+      <div class="row">
+        <div class="col-3">
+          <mat-slide-toggle [(ngModel)]="day[4]">friday</mat-slide-toggle>
+        </div>
+        <div class="col-9">
+          <div class="custom-slider">
+            <ng5-slider
+              [(value)]="value[4]"
+              [(highValue)]="highValue[4]"
+              [options]="options"
+            ></ng5-slider>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <mat-slide-toggle [(ngModel)]="saturday">saturday</mat-slide-toggle>
-      </div>
-      <div class="col-9">
-        <div class="custom-slider">
-          <ng5-slider
-            [(value)]="value[5]"
-            [(highValue)]="highValue[5]"
-            [options]="options"
-          ></ng5-slider>
+      <div class="row">
+        <div class="col-3">
+          <mat-slide-toggle [(ngModel)]="day[5]">saturday</mat-slide-toggle>
+        </div>
+        <div class="col-9">
+          <div class="custom-slider">
+            <ng5-slider
+              [(value)]="value[5]"
+              [(highValue)]="highValue[5]"
+              [options]="options"
+            ></ng5-slider>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <mat-slide-toggle [(ngModel)]="sunday">sunday</mat-slide-toggle>
-      </div>
-      <div class="col-9">
-        <div class="custom-slider">
-          <ng5-slider
-            [(value)]="value[6]"
-            [(highValue)]="highValue[6]"
-            [options]="options"
-          ></ng5-slider>
+      <div class="row">
+        <div class="col-3">
+          <mat-slide-toggle [(ngModel)]="day[6]">sunday</mat-slide-toggle>
+        </div>
+        <div class="col-9">
+          <div class="custom-slider">
+            <ng5-slider
+              [(value)]="value[6]"
+              [(highValue)]="highValue[6]"
+              [options]="options"
+            ></ng5-slider>
+          </div>
         </div>
       </div>
-    </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="warn" (click)="onClick()">Submit</button>
+    </mat-card-actions>
   </mat-card>
-  <p>{{ monday }}</p>
-  <p>{{ value[0] }}</p>
-
-  <p>{{ highValue[0] }}</p>
-  <p>{{ value[1] }}</p>
-
-  <p>{{ highValue[1] }}</p>
 </div>
