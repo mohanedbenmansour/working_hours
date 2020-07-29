@@ -9,19 +9,13 @@ import { Ng5SliderModule } from 'ng5-slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
-import { SliderComponent } from './components/slider/slider.component';
 import { FormsModule } from '@angular/forms';
 import { PostService } from './services/post.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AddPostComponent,
-    ViewPostsComponent,
-    SliderComponent,
-  ],
+  declarations: [AppComponent, AddPostComponent, ViewPostsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

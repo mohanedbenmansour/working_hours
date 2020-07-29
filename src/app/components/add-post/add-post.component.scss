@@ -4,7 +4,7 @@
     height: 2px;
   }
   .custom-slider .ng5-slider .ng5-slider-selection {
-    background: orange;
+    background: #ffeb3b;
   }
 
   .custom-slider .ng5-slider .ng5-slider-pointer {
@@ -24,7 +24,7 @@
 
   .custom-slider .ng5-slider .ng5-slider-limit {
     font-weight: bold;
-    color: orange;
+    color: #ffeb3b;
   }
 
   .custom-slider .ng5-slider .ng5-slider-tick {
@@ -37,15 +37,19 @@
   }
 
   .custom-slider .ng5-slider .ng5-slider-tick.ng5-slider-selected {
-    background: orange;
+    background: #ffeb3b;
   }
 }
 mat-card {
   width: 60%;
 }
-button {
+#submit {
   width: 100%;
+  background: #ffeb3b;
+}
+#viewPosts {
+  background: #ffeb3b;
 }
 h1 {
-  color: rgb(168, 168, 17);
+  color: #ffeb3b;
 }

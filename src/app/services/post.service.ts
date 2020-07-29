@@ -10,6 +10,6 @@ export class PostService {
     return this.http.post('http://localhost:5000/addpost', post);
   }
   getPosts() {
-    return this.http.get('getposts');
+    return this.http.get('http://localhost:5000/getposts');
   }
 }

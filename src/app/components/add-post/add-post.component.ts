@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Options, LabelType } from 'ng5-slider';
 import { post } from '../../shared/post';
 import { PostService } from '../../services/post.service';
-import { ThrowStmt } from '@angular/compiler';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-post',
   templateUrl: './add-post.component.html',
@@ -11,7 +11,7 @@ import { ThrowStmt } from '@angular/compiler';
 export class AddPostComponent implements OnInit {
   newPost: post;
   working_hours: post[] = [];
-  constructor(private postService: PostService) {}
+  constructor(private postService: PostService, private router: Router) {}
 
   ngOnInit(): void {
     console.log(this.value[0]);

@@ -12,7 +12,7 @@ module.exports.addPost = (req, res, next) => {
 };
 
 module.exports.getPost = (req, res, next) => {
-  post.find({}, (err, posts) => {
+  Post.find({}, (err, posts) => {
     if (err) res.status(500).json({ ermsg: err });
     res.status(200).json({ msg: posts });
   });

@@ -1,7 +1,10 @@
-<div class="container d-flex justify-content-center">
+<div class="container d-flex justify-content-center bg-dark text-light">
   <mat-card>
     <mat-card-title>
       <h1 class="text-center m-5">Add Working hours</h1>
+      <button mat-button id="viewPosts" routerLink="/viewposts">
+        view Posts
+      </button>
     </mat-card-title>
     <mat-card-content>
       <div class="row">
@@ -104,7 +107,7 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button color="warn" (click)="onClick()">Submit</button>
+      <button mat-button (click)="onClick()" id="submit">Submit</button>
     </mat-card-actions>
   </mat-card>
 </div>

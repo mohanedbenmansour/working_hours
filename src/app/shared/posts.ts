@@ -1,4 +1,5 @@
-import post from './post';
+import { post } from '../shared/post';
 export class posts {
-  working_hours: Array<post>;
+  _id: String;
+  working_days: Array<post>;
 }
