@@ -7,21 +7,53 @@
       </button>
     </mat-card-title>
     <mat-card-content>
-      <div class="row">
+      <div class="row" *ngFor="let i of boucle">
         <div class="col-3">
-          <mat-slide-toggle [(ngModel)]="day[0]">monday</mat-slide-toggle>
+          <mat-slide-toggle [(ngModel)]="day[i]">{{
+            dayName[i]
+          }}</mat-slide-toggle>
         </div>
-        <div class="col-9">
-          <div class="custom-slider">
+
+        <div class="col-3" *ngIf="day[i]">
+          <mat-select
+            placeholder="select option"
+            [(ngModel)]="selectedOption[i]"
+          >
+            <mat-option value="morning">morning</mat-option>
+            <mat-option value="afternoon">afternoon </mat-option>
+            <mat-option value="doubleshift">double shift</mat-option>
+          </mat-select>
+        </div>
+        <div class="col-6" *ngIf="selectedOption[i] && day[i]">
+          <div
+            class="custom-slider"
+            *ngIf="
+              selectedOption[i] == 'morning' ||
+              selectedOption[i] == 'doubleshift'
+            "
+          >
             <ng5-slider
-              [(value)]="value[0]"
-              [(highValue)]="highValue[0]"
+              [(value)]="value[i]"
+              [(highValue)]="highValue[i]"
               [options]="options"
+            ></ng5-slider>
+          </div>
+          <div
+            class="custom-slider"
+            *ngIf="
+              selectedOption[i] == 'afternoon' ||
+              selectedOption[i] == 'doubleshift'
+            "
+          >
+            <ng5-slider
+              [(value)]="value2[i]"
+              [(highValue)]="highValue2[i]"
+              [options]="options2"
             ></ng5-slider>
           </div>
         </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-3">
           <mat-slide-toggle [(ngModel)]="day[1]">tuesday</mat-slide-toggle>
         </div>
@@ -104,7 +136,7 @@
             ></ng5-slider>
           </div>
         </div>
-      </div>
+      </div> -->
     </mat-card-content>
     <mat-card-actions>
       <button mat-button (click)="onClick()" id="submit">Submit</button>

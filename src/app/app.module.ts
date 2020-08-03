@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { PostService } from './services/post.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [AppComponent, AddPostComponent, ViewPostsComponent],
@@ -26,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
     HttpClientModule,
     MatButtonModule,
+    MatSelectModule
   ],
   providers: [PostService],
   bootstrap: [AppComponent],

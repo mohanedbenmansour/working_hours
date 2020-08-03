@@ -11,13 +11,24 @@ import { Router } from '@angular/router';
 export class AddPostComponent implements OnInit {
   newPost: post;
   working_hours: post[] = [];
+
   constructor(private postService: PostService, private router: Router) {}
 
   ngOnInit(): void {
     console.log(this.value[0]);
   }
-
-  day: Array<boolean> = [false, false, false, false, false, false, false];
+  boucle: Array<number> = [0, 1, 2, 3, 4, 5, 6];
+  dayName: Array<string> = [
+    'monday',
+    'tuesday',
+    'wednesday',
+    'thursday',
+    'friday',
+    'saturday',
+    'sunday',
+  ];
+  selectedOption: Array<string> = ['', '', '', '', '', '', ''];
+  day: Array<boolean> = [true, false, false, false, false, false, false];
   value: Array<number> = [7, 7, 7, 7, 7, 7, 7];
   highValue: Array<number> = [10, 10, 10, 10, 10, 10, 10];
   options: Options = {
@@ -25,7 +36,13 @@ export class AddPostComponent implements OnInit {
     ceil: 12,
     step: 0.5,
   };
-
+  value2: Array<number> = [14, 14, 14, 14, 14, 14, 14];
+  highValue2: Array<number> = [16, 16, 16, 16, 16, 16, 16];
+  options2: Options = {
+    floor: 12,
+    ceil: 19,
+    step: 0.5,
+  };
   onClick() {
     this.addWokringHours();
     console.log(this.working_hours);
