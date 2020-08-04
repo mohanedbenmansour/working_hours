@@ -13,10 +13,15 @@ import { FormsModule } from '@angular/forms';
 import { PostService } from './services/post.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
-import {MatSelectModule} from '@angular/material/select';
-
+import { MatSelectModule } from '@angular/material/select';
+import { ChangeTimePipe } from './change-time.pipe';
 @NgModule({
-  declarations: [AppComponent, AddPostComponent, ViewPostsComponent],
+  declarations: [
+    AppComponent,
+    AddPostComponent,
+    ViewPostsComponent,
+    ChangeTimePipe,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,7 +32,7 @@ import {MatSelectModule} from '@angular/material/select';
     FormsModule,
     HttpClientModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   providers: [PostService],
   bootstrap: [AppComponent],

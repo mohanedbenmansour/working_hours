@@ -4,8 +4,20 @@
       <mat-card-title> working hours</mat-card-title>
 
       <mat-card-content *ngFor="let pp of post.working_days">
-        <p>
+        <p *ngIf="pp.start && !pp.start2">
           <strong>{{ pp.day }} :</strong> {{ pp.start }} am ---->{{ pp.end }} am
+        </p>
+        <p *ngIf="pp.start2 && !pp.start">
+          <strong>{{ pp.day }} :</strong> {{ pp.start2 | changeTime }} pm
+          ---->{{ pp.end2 | changeTime }}
+          pm
+        </p>
+        <p *ngIf="pp.start2 && pp.start">
+          <strong>{{ pp.day }} :</strong> {{ pp.start }} am -->{{ pp.end }} am
+          <strong>AND</strong> {{ pp.start2 | changeTime }} pm -->{{
+            pp.end2 | changeTime
+          }}
+          pm
         </p>
       </mat-card-content>
     </mat-card>

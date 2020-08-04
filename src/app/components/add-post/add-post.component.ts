@@ -3,6 +3,7 @@ import { Options, LabelType } from 'ng5-slider';
 import { post } from '../../shared/post';
 import { PostService } from '../../services/post.service';
 import { Router } from '@angular/router';
+import { trigger, transition } from '@angular/animations';
 @Component({
   selector: 'app-add-post',
   templateUrl: './add-post.component.html',
@@ -59,12 +60,34 @@ export class AddPostComponent implements OnInit {
   addWokringHours() {
     for (let i = 0; i < 7; i++)
       if (this.day[i] == true) {
-        this.newPost = {
-          day: this.getDay(i),
-          start: this.value[i].toString(),
-          end: this.highValue[i].toString(),
-        };
-        this.working_hours.push(this.newPost);
+        if (this.selectedOption[i] == 'morning') {
+          this.newPost = {
+            day: this.getDay(i),
+            start: this.value[i].toString(),
+            end: this.highValue[i].toString(),
+            start2: null,
+            end2: null,
+          };
+          this.working_hours.push(this.newPost);
+        } else if (this.selectedOption[i] == 'afternoon') {
+          this.newPost = {
+            day: this.getDay(i),
+            start: null,
+            end: null,
+            start2: this.value2[i].toString(),
+            end2: this.highValue2[i].toString(),
+          };
+          this.working_hours.push(this.newPost);
+        } else if (this.selectedOption[i] == 'doubleshift') {
+          this.newPost = {
+            day: this.getDay(i),
+            start: this.value[i].toString(),
+            end: this.highValue[i].toString(),
+            start2: this.value2[i].toString(),
+            end2: this.highValue2[i].toString(),
+          };
+          this.working_hours.push(this.newPost);
+        }
       }
   }
   getDay(i: number) {

@@ -18,7 +18,7 @@ export class ViewPostsComponent implements OnInit {
     this.postService.getPosts().subscribe(
       (data) => {
         this.posts = data['msg'];
-        console.log(this.posts[0].working_days);
+        console.log(this.posts[6].working_days);
       },
       (error) => {
         console.log(error);
