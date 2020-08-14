@@ -9,18 +9,37 @@ import { Ng5SliderModule } from 'ng5-slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
-import { FormsModule } from '@angular/forms';
 import { PostService } from './services/post.service';
 import { HttpClientModule } from '@angular/common/http';
+
+import { ChangeTimePipe } from './change-time.pipe';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { UserService } from './services/user.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
-import { ChangeTimePipe } from './change-time.pipe';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+
 @NgModule({
   declarations: [
     AppComponent,
     AddPostComponent,
     ViewPostsComponent,
     ChangeTimePipe,
+    SignInComponent,
+    SignUpComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,13 +47,23 @@ import { ChangeTimePipe } from './change-time.pipe';
     Ng5SliderModule,
     MatSlideToggleModule,
     BrowserAnimationsModule,
-    MatCardModule,
     FormsModule,
     HttpClientModule,
+
+    MatIconModule,
+    MatGridListModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    MatCardModule,
+    MatDialogModule,
+    MatTableModule,
+    ReactiveFormsModule,
   ],
-  providers: [PostService],
+  providers: [PostService, UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

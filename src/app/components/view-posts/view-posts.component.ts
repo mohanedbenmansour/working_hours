@@ -8,7 +8,7 @@ import { posts } from '../../shared/posts';
   styleUrls: ['./view-posts.component.scss'],
 })
 export class ViewPostsComponent implements OnInit {
-  posts: posts[];
+  posts: any;
   constructor(private postService: PostService) {}
 
   ngOnInit(): void {
@@ -17,8 +17,7 @@ export class ViewPostsComponent implements OnInit {
   readPosts() {
     this.postService.getPosts().subscribe(
       (data) => {
-        this.posts = data['msg'];
-        console.log(this.posts[6].working_days);
+        this.posts = data;
       },
       (error) => {
         console.log(error);

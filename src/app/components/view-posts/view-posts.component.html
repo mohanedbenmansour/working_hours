@@ -3,7 +3,7 @@
     <mat-card>
       <mat-card-title> working hours</mat-card-title>
 
-      <mat-card-content *ngFor="let pp of post.working_days">
+      <mat-card-content *ngFor="let pp of post.working_hours">
         <p *ngIf="pp.start && !pp.start2">
           <strong>{{ pp.day }} :</strong> {{ pp.start }} am ---->{{ pp.end }} am
         </p>

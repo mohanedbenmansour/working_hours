@@ -1,0 +1,31 @@
+svg {
+  transform: rotate(180deg);
+}
+.container_row {
+  display: grid;
+}
+
+.layer1,
+.layer2 {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.layer1 {
+  z-index: 1;
+}
+.layer2 {
+  z-index: 2;
+  text-align: center;
+  margin-top: 60px;
+}
+h1 {
+  font-size: 60px;
+}
+.container {
+  border: 1px solid #e7008a;
+  border-radius: 10px;
+  width: 50%;
+  height: 500px;
+  padding: 20px;
+}
