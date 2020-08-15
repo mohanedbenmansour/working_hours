@@ -30,7 +30,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
-
+import { AuthGuardService } from './auth/user.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +63,7 @@ import { MatTableModule } from '@angular/material/table';
     MatTableModule,
     ReactiveFormsModule,
   ],
-  providers: [PostService, UserService],
+  providers: [PostService, UserService, AuthGuardService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
