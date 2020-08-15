@@ -7,9 +7,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class PostService {
   constructor(private http: HttpClient) {}
   createPost(post) {
-    return this.http.post('post', post);
+    return this.http.post('http://localhost:3000/post', post);
   }
   getPosts() {
-    return this.http.get('post');
+    return this.http.get('http://localhost:3000/post');
   }
 }

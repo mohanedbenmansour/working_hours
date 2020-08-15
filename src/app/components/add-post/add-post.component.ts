@@ -4,6 +4,7 @@ import { post } from '../../shared/post';
 import { PostService } from '../../services/post.service';
 import { Router } from '@angular/router';
 import { trigger, transition } from '@angular/animations';
+import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-add-post',
   templateUrl: './add-post.component.html',
@@ -13,7 +14,11 @@ export class AddPostComponent implements OnInit {
   newPost: post;
   working_hours: post[] = [];
 
-  constructor(private postService: PostService, private router: Router) {}
+  constructor(
+    private postService: PostService,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
     console.log(this.value[0]);
@@ -114,5 +119,10 @@ export class AddPostComponent implements OnInit {
         return 'sunday';
       }
     }
+  }
+  logout() {
+    this.userService.deleteToken();
+
+    this.router.navigateByUrl('/home');
   }
 }

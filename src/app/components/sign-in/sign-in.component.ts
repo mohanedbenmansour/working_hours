@@ -19,15 +19,14 @@ export class SignInComponent implements OnInit {
   serverErrorMessages: boolean;
   submitted: boolean;
   ngOnInit(): void {
-    if (this.userService.isLoggedIn()) this.router.navigate(['/home']);
+    // if (this.userService.isLoggedIn()) this.router.navigate(['/addpost']);
   }
   onSubmit(form: FormGroup) {
     this.submitted = true;
     this.userService.login(form.value).subscribe(
       (res) => {
-        this.userService.setToken(res['accessToken']);
+        this.userService.setToken(res['token']);
 
-        this.userService.setId(res['data'].userId);
         alert('welcome to your profile');
         this.goToDashboard();
       },
@@ -40,4 +39,5 @@ export class SignInComponent implements OnInit {
   goToDashboard() {
     this.router.navigateByUrl('/addpost');
   }
+  logout() {}
 }

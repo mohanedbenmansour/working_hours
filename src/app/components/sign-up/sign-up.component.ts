@@ -14,7 +14,6 @@ export class SignUpComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required]),
-    role: new FormControl('', [Validators.required]),
   });
   ngOnInit(): void {}
   constructor(public userService: UserService, private router: Router) {}
