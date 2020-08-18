@@ -32,8 +32,8 @@ export class SignUpComponent implements OnInit {
         form.reset();
       },
       (err) => {
-        console.log(err);
-        this.serverErrorMessages = true;
+        if (err.error.statusCode == 500) this.showUserError();
+        else this.showServerError();
       }
     );
   }
@@ -47,14 +47,17 @@ export class SignUpComponent implements OnInit {
     return this.profileForm.get('password');
   }
   showSuccess() {
-    this.toastrService.success(
-      'you have signed up successfully',
-      'Toastr fun!',
-      { timeOut: 2000 }
-    );
+    this.toastrService.success('you have signed up successfully', 'success', {
+      timeOut: 2000,
+    });
   }
-  showError() {
-    this.toastrService.error('something went wrong', 'Major Error', {
+  showServerError() {
+    this.toastrService.error('something went wrong', 'server error', {
+      timeOut: 3000,
+    });
+  }
+  showUserError() {
+    this.toastrService.error('user already exists', 'server error', {
       timeOut: 3000,
     });
   }
