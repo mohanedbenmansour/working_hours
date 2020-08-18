@@ -14,3 +14,16 @@ strong {
 mat-card {
   border: 1px solid rgb(241, 86, 112);
 }
+.navbar {
+  justify-content: space-between;
+}
+
+span {
+  padding-right: 1rem;
+}
+mat-card {
+  margin: 30px;
+}
+.spacer {
+  flex: 1 1 auto;
+}

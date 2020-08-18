@@ -106,3 +106,16 @@ nav ul li a {
   z-index: 1;
   cursor: pointer;
 }
+.navbar {
+  justify-content: space-between;
+}
+
+span {
+  padding-right: 1rem;
+}
+mat-card {
+  margin: 30px;
+}
+.spacer {
+  flex: 1 1 auto;
+}
