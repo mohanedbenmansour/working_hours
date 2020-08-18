@@ -7,7 +7,6 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { ViewPostsComponent } from './components/view-posts/view-posts.component';
 import { Ng5SliderModule } from 'ng5-slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { PostService } from './services/post.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -31,6 +30,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { AuthGuardService } from './auth/user.guard';
+
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +65,7 @@ import { AuthGuardService } from './auth/user.guard';
     MatDialogModule,
     MatTableModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [PostService, UserService, AuthGuardService],
   bootstrap: [AppComponent],

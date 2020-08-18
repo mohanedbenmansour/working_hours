@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -16,17 +18,21 @@ export class SignUpComponent implements OnInit {
     name: new FormControl('', [Validators.required]),
   });
   ngOnInit(): void {}
-  constructor(public userService: UserService, private router: Router) {}
+  constructor(
+    public userService: UserService,
+    private router: Router,
+    private toastrService: ToastrService
+  ) {}
 
   onSubmit(form: FormGroup) {
     this.submitted = true;
     this.userService.createUser(form.value).subscribe(
       (data) => {
-        alert('you have signed up successfully');
+        this.showSuccess();
         form.reset();
       },
       (err) => {
-        console.log(form.value);
+        console.log(err);
         this.serverErrorMessages = true;
       }
     );
@@ -39,5 +45,17 @@ export class SignUpComponent implements OnInit {
   }
   get password() {
     return this.profileForm.get('password');
+  }
+  showSuccess() {
+    this.toastrService.success(
+      'you have signed up successfully',
+      'Toastr fun!',
+      { timeOut: 2000 }
+    );
+  }
+  showError() {
+    this.toastrService.error('something went wrong', 'Major Error', {
+      timeOut: 3000,
+    });
   }
 }

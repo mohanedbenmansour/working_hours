@@ -24,7 +24,7 @@ export class UserService {
   }
 
   getUserProfile() {
-    return this.http.get('http://localhost:3000/getuser');
+    return this.http.get('getuser');
   }
   //token field
   setToken(token: string) {
