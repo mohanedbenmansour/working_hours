@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { ViewPostsComponent } from './components/view-posts/view-posts.component';
-import { Ng5SliderModule } from 'ng5-slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { PostService } from './services/post.service';
@@ -33,6 +32,8 @@ import { AuthGuardService } from './auth/user.guard';
 
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    Ng5SliderModule,
     MatSlideToggleModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -66,6 +66,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatTableModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
+    FontAwesomeModule,
+    MatTooltipModule,
   ],
   providers: [PostService, UserService, AuthGuardService],
   bootstrap: [AppComponent],

@@ -9,55 +9,146 @@
 <div class="container d-flex justify-content-center">
   <mat-card>
     <mat-card-content>
-      <div class="row" *ngFor="let i of boucle">
-        <div class="col-3">
-          <mat-slide-toggle [(ngModel)]="day[i]">{{
-            dayName[i]
-          }}</mat-slide-toggle>
-        </div>
+      <form #workingHoursForm="ngForm" (ngSubmit)="onClick()">
+        <div class="row align-items-center" *ngFor="let i of boucle">
+          <div class="col-3">
+            <p>{{ dayName[i] }}</p>
+          </div>
+          <div class="col-2">
+            <mat-slide-toggle
+              [(ngModel)]="day[i]"
+              color="primary"
+              name="{{ i }}+slider"
+            ></mat-slide-toggle>
+          </div>
 
-        <div class="col-3" *ngIf="day[i]">
-          <mat-select
-            placeholder="select option"
-            [(ngModel)]="selectedOption[i]"
-          >
-            <mat-option value="morning">morning</mat-option>
-            <mat-option value="afternoon">afternoon </mat-option>
-            <mat-option value="doubleshift">double shift</mat-option>
-          </mat-select>
-        </div>
-        <div class="col-6" *ngIf="selectedOption[i] && day[i]">
-          <div
-            class="custom-slider"
-            *ngIf="
-              selectedOption[i] == 'morning' ||
-              selectedOption[i] == 'doubleshift'
-            "
-          >
-            <ng5-slider
-              [(value)]="value[i]"
-              [(highValue)]="highValue[i]"
-              [options]="options"
-            ></ng5-slider>
+          <div class="col-5 d-flex flex-column" *ngIf="day[i]">
+            <div class="p-2">
+              <input
+                type="text"
+                [(ngModel)]="values[i][0]"
+                maxlength="8"
+                required
+                #input="ngModel"
+                pattern="(0[0-9]|1[0-2]):[0-5][0-9] [ap]m"
+                name="input0+{{ i }}"
+              />
+
+              -
+              <input
+                type="text"
+                #input1="ngModel"
+                [(ngModel)]="highValues[i][0]"
+                maxlength="8"
+                required
+                pattern="(0[0-9]|1[0-2]):[0-5][0-9] [ap]m"
+                name="input1+{{ i }}"
+              />
+              <fa-icon
+                *ngIf="
+                  (input.errors?.pattern && input.touched) ||
+                  (input1.errors?.pattern && input1.touched) ||
+                  !checkValidEndTime(values[i][0], highValues[i][0])
+                "
+                [icon]="faExclamationTriangle"
+                matTooltip="time form invalid or end time > start time"
+                class="p-1"
+                style="color: #a94442;"
+              ></fa-icon>
+            </div>
+
+            <div class="p-2" *ngIf="addMoreHours[i] >= 1">
+              <input
+                type="text"
+                #input2="ngModel"
+                [(ngModel)]="values[i][1]"
+                maxlength="8"
+                required
+                pattern="(0[0-9]|1[0-2]):[0-5][0-9] [ap]m"
+                name="input2+{{ i }}"
+              />
+              -
+              <input
+                type="text"
+                #input3="ngModel"
+                [(ngModel)]="highValues[i][1]"
+                maxlength="8"
+                required
+                pattern="(0[0-9]|1[0-2]):[0-5][0-9] [ap]m"
+                name="input3+{{ i }}"
+              />
+
+              <fa-icon
+                [icon]="faTrashAlt"
+                (click)="removeHours(i)"
+                class="p-1"
+              ></fa-icon>
+
+              <fa-icon
+                *ngIf="
+                  (input2.errors?.pattern && input2.touched) ||
+                  (input3.errors?.pattern && input3.touched) ||
+                  !checkValidEndTime(values[i][1], highValues[i][1])
+                "
+                [icon]="faExclamationTriangle"
+                matTooltip="time form invalid or end time > start time"
+                class="p-1"
+                style="color: #a94442;"
+              ></fa-icon>
+            </div>
+
+            <div class="p-2" *ngIf="addMoreHours[i] == 2">
+              <input
+                type="text"
+                #input4="ngModel"
+                [(ngModel)]="values[i][2]"
+                maxlength="8"
+                required
+                pattern="(0[0-9]|1[0-2]):[0-5][0-9] [ap]m"
+                name="input4+{{ i }}"
+              />
+              -
+              <input
+                type="text"
+                #input5="ngModel"
+                [(ngModel)]="highValues[i][2]"
+                maxlength="8"
+                required
+                pattern="(0[0-9]|1[0-2]):[0-5][0-9] [ap]m"
+                name="input5+{{ i }}"
+              />
+              <fa-icon
+                [icon]="faTrashAlt"
+                (click)="removeHours(i)"
+                class="p-1"
+              ></fa-icon>
+              <fa-icon
+                *ngIf="
+                  (input4.errors?.pattern && input4.touched) ||
+                  (input5.errors?.pattern && input5.touched) ||
+                  !checkValidEndTime(values[i][2], highValues[i][2])
+                "
+                [icon]="faExclamationTriangle"
+                matTooltip="time form invalid or end time > start time"
+                class="p-1"
+                style="color: #a94442;"
+              ></fa-icon>
+            </div>
           </div>
-          <div
-            class="custom-slider"
-            *ngIf="
-              selectedOption[i] == 'afternoon' ||
-              selectedOption[i] == 'doubleshift'
-            "
-          >
-            <ng5-slider
-              [(value)]="value2[i]"
-              [(highValue)]="highValue2[i]"
-              [options]="options2"
-            ></ng5-slider>
+
+          <div class="col-2" *ngIf="day[i] && addMoreHours[i] < 2">
+            <a (click)="addHours(i)" color="primary">add hours</a>
           </div>
         </div>
-      </div>
+        <button
+          mat-button
+          id="submit"
+          [disabled]="!workingHoursForm.form.valid"
+        >
+          Submit
+        </button>
+      </form>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-button (click)="onClick()" id="submit">Submit</button>
-    </mat-card-actions>
+    <mat-card-actions> </mat-card-actions>
   </mat-card>
 </div>

@@ -9,14 +9,14 @@ const routes: Routes = [
   {
     path: 'addpost',
     component: AddPostComponent,
-    canActivate: [AuthGuardService],
+    //canActivate: [AuthGuardService],
   },
   {
     path: 'viewposts',
     component: ViewPostsComponent,
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
   },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/addpost', pathMatch: 'full' },
 ];
 
 @NgModule({
