@@ -8,6 +8,8 @@ import { UserService } from '../../services/user.service';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { strict } from 'assert';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-add-post',
   templateUrl: './add-post.component.html',
@@ -25,7 +27,8 @@ export class AddPostComponent implements OnInit {
   constructor(
     private postService: PostService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -70,16 +73,16 @@ export class AddPostComponent implements OnInit {
 
   onClick() {
     this.addWorkingHours();
-
-    // this.postService.createPost(this.working_hours).subscribe(
-    //   (data) => {
-    //     this.working_hours = [];
-    //     alert('Post added successfully');
-    //   },
-    //   (err) => {
-    //     console.log(err);
-    //   }
-    // );
+    console.log(this.PostArray);
+    this.postService.createPost(this.PostArray).subscribe(
+      (data) => {
+        this.PostArray = [];
+        this.showSuccess();
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
   addWorkingHours() {
     for (let i = 0; i < 7; i++)
@@ -155,5 +158,10 @@ export class AddPostComponent implements OnInit {
     this.userService.deleteToken();
 
     this.router.navigateByUrl('/home');
+  }
+  showSuccess() {
+    this.toastrService.success('post added successfully', 'success', {
+      timeOut: 2000,
+    });
   }
 }

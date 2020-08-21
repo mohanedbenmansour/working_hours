@@ -24,6 +24,7 @@ export class ViewPostsComponent implements OnInit {
     this.postService.getPosts().subscribe(
       (data) => {
         this.posts = data;
+        console.log(data);
       },
       (error) => {
         console.log(error);
